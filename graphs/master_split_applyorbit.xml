@@ -4,7 +4,7 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>INPUTFILE</file>
+      <file>E:\1_test\apt-snap_stamps_matlab\test_snap\slaves\20150523\S1A_IW_SLC__1SDV_20150523T033418_20150523T033445_006043_007CE5_0D30.zip</file>
     </parameters>
   </node>
   <node id="TOPSAR-Split">
@@ -13,11 +13,11 @@
       <sourceProduct refid="Read"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <subswath>IWs</subswath>
-      <selectedPolarisations>POLARISATION</selectedPolarisations>
-      <firstBurstIndex>1</firstBurstIndex>
-      <lastBurstIndex>10</lastBurstIndex>
-      <wktAoi>POLYGON</wktAoi>
+      <subswath>IW3</subswath>
+      <selectedPolarisations>VV</selectedPolarisations>
+      <firstBurstIndex>6</firstBurstIndex>
+      <lastBurstIndex>7</lastBurstIndex>
+      <wktAoi/>
     </parameters>
   </node>
   <node id="Apply-Orbit-File">
@@ -37,7 +37,7 @@
       <sourceProduct refid="Apply-Orbit-File"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>OUTPUTFILE</file>
+      <file>E:\1_test\apt-snap_stamps_matlab\test_snap\master\20150523.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>

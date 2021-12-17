@@ -1,0 +1,6 @@
+<parameters>
+    <subswath>IW3</subswath>
+    <selectedPolarisations>VV</selectedPolarisations>
+    <firstBurstIndex>6</firstBurstIndex>
+    <lastBurstIndex>7</lastBurstIndex>
+</parameters>

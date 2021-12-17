@@ -30,31 +30,31 @@ try:
         for line in in_file.readlines():
                 if "PROJECTFOLDER" in line:
                         PROJECT = line.split('=')[1].strip()
-                        print PROJECT
+                        print(PROJECT) 
                 if "IW1" in line:
                         IW = line.split('=')[1].strip()
-                        print IW
+                        print(IW)
                 if "MASTER" in line:
                         MASTER = line.split('=')[1].strip()
-                        print MASTER
+                        print(MASTER) 
                 if "GRAPHSFOLDER" in line:
                         GRAPH = line.split('=')[1].strip()
-                        print GRAPH
+                        print(GRAPH) 
                 if "GPTBIN_PATH" in line:
                         GPT = line.split('=')[1].strip()
-                        print GPT
-		if "LONMIN" in line:
-			LONMIN = line.split('=')[1].strip()
+                        print(GPT) 
+                if "LONMIN" in line:
+                    LONMIN = line.split('=')[1].strip()
                 if "LATMIN" in line:
                         LATMIN = line.split('=')[1].strip()
                 if "LONMAX" in line:
                         LONMAX = line.split('=')[1].strip()
                 if "LATMAX" in line:
                         LATMAX = line.split('=')[1].strip()
-		if "CACHE" in line:
-			CACHE = line.split('=')[1].strip()
-		if "CPU" in line:
-			CPU = line.split('=')[1].strip()
+                if "CACHE" in line:
+                    CACHE = line.split('=')[1].strip()
+                if "CPU" in line:
+                    CPU = line.split('=')[1].strip()
 finally:
         in_file.close()
 
@@ -77,26 +77,26 @@ if not os.path.exists(logfolder):
 outlog=logfolder+'/coreg_ifg_proc_stdout.log'
 
 graphxml=GRAPH+'/coreg_ifg_computation_subset.xml'
-print graphxml
+print(graphxml) 
 graph2run=GRAPH+'/coreg_ifg2run.xml'
 
 out_file = open(outlog, 'a')
 err_file=out_file
 
-print bar_message
+print(bar_message) 
 out_file.write(bar_message)
 message='## Coregistration and Interferogram computation started:\n'
-print message
+print(message) 
 out_file.write(message)
-print bar_message 
+print(bar_message)  
 out_file.write(bar_message)
 k=0
 for dimfile in glob.iglob(slavesplittedfolder + '/*/*'+IW+'.dim'):
-    print dimfile
+    print(dimfile) 
     k=k+1
     head, tail = os.path.split(os.path.join(slavesplittedfolder, dimfile))
     message='['+str(k)+'] Processing slave file :'+tail+'\n'
-    print message
+    print(message) 
     out_file.write(message)
     head , tailm = os.path.split(MASTER)
     outputname=tailm[17:25]+'_'+tail[0:8]+'_'+IW+'.dim'
@@ -104,7 +104,7 @@ for dimfile in glob.iglob(slavesplittedfolder + '/*/*'+IW+'.dim'):
        filedata = file.read()
     # Replace the target string
     filedata = filedata.replace('MASTER',MASTER)
-    filedata = filedata.replace('SLAVE', dimfile)
+    filedata = filedata.replace('SLAVE', dimfile)	
     filedata = filedata.replace('OUTPUTCOREGFOLDER',outputcoregfolder)
     filedata = filedata.replace('OUTPUTIFGFOLDER', outputifgfolder)
     filedata = filedata.replace('OUTPUTFILE',outputname)
@@ -113,11 +113,12 @@ for dimfile in glob.iglob(slavesplittedfolder + '/*/*'+IW+'.dim'):
     with open(graph2run, 'w') as file:
        file.write(filedata)
     args = [ GPT, graph2run, '-c', CACHE, '-q', CPU]
+    print(args) 
     # Launch the processing
     process = subprocess.Popen(args, stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     timeStarted = time.time()
     stdout = process.communicate()[0]
-    print 'SNAP STDOUT:{}'.format(stdout)
+    print('SNAP STDOUT:{}'.format(stdout))
     timeDelta = time.time() - timeStarted                     # Get execution time.
     print('['+str(k)+'] Finished process in '+str(timeDelta)+' seconds.')
     out_file.write('['+str(k)+'] Finished process in '+str(timeDelta)+' seconds.\n')
@@ -126,8 +127,8 @@ for dimfile in glob.iglob(slavesplittedfolder + '/*/*'+IW+'.dim'):
         err_file.write(message+'\n')
     else:
         message='Coregistration and Interferogram computation for data '+str(tail)+' successfully completed.\n'
-        print message
+        print(message) 
         out_file.write(message)
-    print bar_message
+    print(bar_message) 
     out_file.write(bar_message)
 out_file.close()

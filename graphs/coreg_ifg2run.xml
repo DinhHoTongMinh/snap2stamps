@@ -4,14 +4,14 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>MASTER</file>
+      <file>C:\Users\DinhH\Documents\TETIS\IGARSS2021\5_SNAP2STAMPS\master\20180930.dim</file>
     </parameters>
   </node>
   <node id="Read(2)">
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>SLAVE</file>
+      <file>C:\Users\DinhH\Documents\TETIS\IGARSS2021\5_SNAP2STAMPS/split\20191001\20191001_IW3.dim</file>
     </parameters>
   </node>
   <node id="Back-Geocoding">
@@ -106,7 +106,7 @@
       <sourceProduct refid="Subset(2)"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>OUTPUTCOREGFOLDER/OUTPUTFILE</file>
+      <file>C:\Users\DinhH\Documents\TETIS\IGARSS2021\5_SNAP2STAMPS/coreg/_20191001_IW3.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
@@ -134,7 +134,7 @@
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
       <region>0,0,24608,2844</region>
-      <geoRegion>POLYGON</geoRegion>
+      <geoRegion>POLYGON ((-99.2 19.25,-98.9 19.25,-98.9 19.55,-99.2 19.55,-99.2 19.25))</geoRegion>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
       <fullSwath>false</fullSwath>
@@ -150,7 +150,7 @@
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
       <region>0,0,24608,2844</region>
-      <geoRegion>POLYGON</geoRegion>
+      <geoRegion>POLYGON ((-99.2 19.25,-98.9 19.25,-98.9 19.55,-99.2 19.55,-99.2 19.25))</geoRegion>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
       <fullSwath>false</fullSwath>
@@ -164,7 +164,7 @@
       <sourceProduct refid="Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>OUTPUTIFGFOLDER/OUTPUTFILE</file>
+      <file>C:\Users\DinhH\Documents\TETIS\IGARSS2021\5_SNAP2STAMPS/ifg/_20191001_IW3.dim</file>
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
